@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Noticias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .item img:hover {
+            transform: scale(1.05);
+        }
+        .item-content {
+            padding: 15px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 1.2em;
+            color: #444;
+        }
+        p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .video-link {
+            display: block;
+            background-color: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .video-link:hover {
+            background-color: #003d82;
+        }
+        #fullscreen-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        #fullscreen-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #fullscreen-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div align="center">
+        <img src="https://veresultado.com/appss/ascencat2024//img/logo_minedu.png" alt="Logo Minedu">
+    </div>
+    <div class="container">
+        <h1>PUBLICACIONES</h1>
+        <div class="gallery">
+            <div class="item">
+                <img src="Captura de pantalla 2024-07-20 122108.png" alt="Noticia 1" onclick="openFullscreen(this)">
+                <div class="item-content">
+                    <h2>Pagina para consultar su resultado</h2>
+                    <a href="https://veresultado.com/appss/ascencat2024/">https://veresultado.com/appss/ascencat2024/</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="Captura de pantalla 2024-07-20 131308.png" onclick="openFullscreen(this)">
+                <div class="item-content">
+                    <h2>Enlace del grupo</h2>
+                    <a href="https://chat.whatsapp.com/D1iGQtGd66bCuMJhoAFk3t">https://chat.whatsapp.com/D1iGQtGd66bCuMJhoAFk3t</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="2Captura de pantalla 2024-07-20 131707.png" onclick="openFullscreen(this)">
+                <div class="item-content">
+                    <h2>Enlace del grupo</h2>
+                    <a href="https://chat.whatsapp.com/CylIa2bFZBrDQG8AvH3jf1">https://chat.whatsapp.com/CylIa2bFZBrDQG8AvH3jf1</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-content">
+                    <h2></h2>
+                    <img src="Captura de pantalla 2024-07-20 123807.png" alt="Noticia 1" onclick="openFullscreen(this)">
+                    <a href="https://vm.tiktok.com/ZMrmtyjCj/" class="video-link" target="_blank">Ver Video</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="Imagen de WhatsApp 2024-07-20 a las 11.36.49_069d35eb.jpg" alt="Noticia 1" onclick="openFullscreen(this)"> 
+            </div>
+            <div class="item">
+                <img src="Imagen de WhatsApp 2024-07-20 a las 10.57.46_bf690071.jpg" alt="Noticia 1" onclick="openFullscreen(this)"> 
+            </div>
+            <div class="item">
+                <img src="Imagen de WhatsApp 2024-07-20 a las 10.57.44_43bf251b.jpg" alt="Noticia 1" onclick="openFullscreen(this)"> 
+            </div>
+            <div class="item">
+                <img src="Imagen de WhatsApp 2024-07-20 a las 10.57.42_c6aa7297.jpg" alt="Noticia 1" onclick="openFullscreen(this)"> 
+            </div>
+            <div class="item">
+                <img src="Imagen de WhatsApp 2024-07-20 a las 09.33.06_ffe0d606.jpg" alt="Noticia 1" onclick="openFullscreen(this)"> 
+            </div>
+            <div class="item">
+                <img src="Imagen de WhatsApp 2024-07-20 a las 04.16.02_57651dca.jpg" alt="Noticia 1" onclick="openFullscreen(this)"> 
+            </div>
+            <div class="item">
+                <img src="Imagen de WhatsApp 2024-07-19 a las 18.35.23_3f20cdfc.jpg" alt="Noticia 1" onclick="openFullscreen(this)"> 
+            </div>
+        </div>
+    </div>
+
+    <div id="fullscreen-container" onclick="closeFullscreen()">
+        <div id="fullscreen-content"></div>
+    </div>
+
+    <script>
+        function openFullscreen(element) {
+            const container = document.getElementById('fullscreen-container');
+            const content = document.getElementById('fullscreen-content');
+            
+            content.innerHTML = `<img src="${element.src}" alt="${element.alt}">`;
+            container.style.display = 'flex';
+            
+            // Ajustar la imagen al tamaño de la pantalla
+            const img = content.querySelector('img');
+            img.style.maxWidth = '100%';
+            img.style.maxHeight = '100%';
+            img.style.width = 'auto';
+            img.style.height = 'auto';
+            
+            // Centrar la imagen
+            img.style.position = 'absolute';
+            img.style.top = '50%';
+            img.style.left = '50%';
+            img.style.transform = 'translate(-50%, -50%)';
+        }
+
+        function closeFullscreen() {
+            const container = document.getElementById('fullscreen-container');
+            container.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
